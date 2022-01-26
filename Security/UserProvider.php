@@ -36,12 +36,12 @@ class UserProvider implements UserProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function loadUserByUsername($username)
+    public function loadUserByIdentifier(string $identifier): UserInterface
     {
-        $user = $this->findUser($username);
+        $user = $this->findUser($identifier);
 
         if (!$user) {
-            throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $username));
+            throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $identifier));
         }
 
         return $user;

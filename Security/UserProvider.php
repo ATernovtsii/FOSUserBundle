@@ -14,7 +14,7 @@ namespace FOS\UserBundle\Security;
 use FOS\UserBundle\Model\UserInterface;
 use FOS\UserBundle\Model\UserManagerInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
+use Symfony\Component\Security\Core\Exception\UserNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface as SecurityUserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
@@ -41,7 +41,7 @@ class UserProvider implements UserProviderInterface
         $user = $this->findUser($identifier);
 
         if (!$user) {
-            throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $identifier));
+            throw new UserNotFoundException(sprintf('Username "%s" does not exist.', $identifier));
         }
 
         return $user;

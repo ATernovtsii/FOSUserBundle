@@ -93,7 +93,7 @@ abstract class User implements UserInterface, EquatableInterface, \Serializable
     /**
      * @var array
      */
-    protected $roles;
+    protected $roles = [];
 
     /**
      * User constructor.
